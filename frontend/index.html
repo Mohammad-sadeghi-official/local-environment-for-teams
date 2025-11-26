@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Frontend Demo</title>
+</head>
+<body>
+  <h1>Frontend Running ✅</h1>
+  <p id="msg">Loading...</p>
+
+  <script>
+    fetch("/api/message")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("msg").innerText = data.message;
+      })
+      .catch(err => {
+        document.getElementById("msg").innerText = "Error connecting to backend 😢";
+      });
+  </script>
+</body>
+</html>
